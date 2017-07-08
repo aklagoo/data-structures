@@ -38,9 +38,12 @@ int main()
 
 void add(int el)
 {
+    struct node *temp;
     while(ptr->next!=NULL)
         ptr=ptr->next;
-    ptr=(node*)malloc(sizeof(node));
+    temp=(node*)malloc(sizeof(node));
+    ptr->next=temp;
+    ptr=temp;
     ptr->data=el;
     ptr->next=NULL;
     ptr=base;
@@ -50,7 +53,7 @@ void print()
 {
     while(ptr->next!=NULL)
     {
-        cout<<ptr->data<<endl;
         ptr=ptr->next;
+        cout<<(ptr->data)<<endl;
     }
 }
